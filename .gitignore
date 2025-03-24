@@ -1,0 +1,55 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de build e cache
+build/
+dist/
+.cache/
+.out/
+
+# Dependências do Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Arquivos de ambiente
+.env*
+!.env.example
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test Coverage
+/coverage
+
+# Output de pacotes
+*.tgz
+*.zip
+
+# Diretórios do Next.js (se aplicável)
+.next/
+.vercel/
+out/
+
+# Dependências do Storybook
+.storybook/
+storybook-static/
+
+# Configuração de lint e formatação
+eslintcache
+.prettier/
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
