@@ -1,17 +1,15 @@
-import './Button.css';
-
+import "./Button.css";
 
 const Button = ({ id, text, action }) => {
-    const handleAction = (e) => {
-        action(e);
-    };
+  const handleAction = (e) => {
+    action(e);
+  };
 
-    
   return (
-    <div>
-      <button id={id}>{text}</button>
-    </div>
-  )
-}
+    <button id={id} onClick={handleAction}>
+      {text}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
