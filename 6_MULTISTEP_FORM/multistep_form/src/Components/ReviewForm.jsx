@@ -8,4 +8,4 @@ const ReviewForm = () => {
   )
 }
 
-export default ReviewForm
+export default ReviewForm;
