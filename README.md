@@ -26,6 +26,9 @@ O React é uma biblioteca JavaScript de código aberto criada pelo Facebook para
  ## Tela de Login
 ![Tela de Login](./2_PROJETO_TELA_LOGIN/src/assets/TelaLogin.JPG)
 
+ ## Formulario com vários passos
+![Formulario](./2_PROJETO_TELA_LOGIN/src/assets/formulario.JPG)
+
 **Fonte: Hora de Cordar - React do Básico ao Avançado **
 
 <div align="center">
