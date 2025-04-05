@@ -1,5 +1,5 @@
 {
-  "products": [ 
+  "products": [
     {
       "name": "capa de chuva",
       "price": "50.50",
@@ -44,7 +44,36 @@
       "name": "suporte microfone 3",
       "price": "75",
       "id": 15
+    },
+    {
+      "id": "ca6a",
+      "name": "geladeira ",
+      "price": "1000"
+    },
+    {
+      "id": "b884",
+      "name": "teste ",
+      "price": "1"
+    },
+    {
+      "id": "6000",
+      "name": "galadeira",
+      "price": "1000"
+    },
+    {
+      "id": "6c7e",
+      "name": "Microondas ",
+      "price": "600"
+    },
+    {
+      "id": "6ce0",
+      "name": "Cafeteira",
+      "price": "500"
+    },  
+    {
+      "id": "fb1e",
+      "name": "Copo",
+      "price": "10"
     }
-   
   ]
 }

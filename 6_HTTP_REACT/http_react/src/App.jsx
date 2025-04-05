@@ -1,40 +1,94 @@
-
 import { useState, useEffect } from "react";
-import './App.css'
+import { useFetch } from "./hooks/useFetch";
 
 // para checar erros, deixar URL vazia
 const url = "http://localhost:3000/products";
+import "./App.css";
 
 function App() {
   //1 resgatando dados
   const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    async function getData() {
-      const res = await fetch(url);
+  // 4 - custom hook
+  const {data: items, httpConfig } = useFetch(url)
 
-      const data = await res.json();
+  // useEffect(() => {
+  //   async function getData() {
+  //     const res = await fetch(url);
 
-      setProducts(data);
+  //     const data = await res.json();
+
+  //     setProducts(data);
+  //   }
+
+  //   getData();
+  // }, []);
+
+  // 2 - Envio de dados
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+
+  const handleSubmit = async (e) => {
+
+    e.preventDefault()
+    
+    const product = {
+      name,
+      price
     }
 
-    getData();
-  }, []);
+    // 5 - refaturando post
+    httpConfig(product, "POST")
 
+
+    // const res = await fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(product),
+    // })
+
+    // 3 - carregamento dinamico
+    // const addedProduct = await res.json();
+    // setProducts((prevProducts) => [...prevProducts, addedProduct]);
+  }
 
   return (
-   <div className='App'>
-    <h1>Http React</h1>
-    {/* 1 - Resgate de dados */}
-    <ul>
-      {products.map((products) => (
-        <li key={products.id}>
-          {products.name} - R${products.price}
-        </li>
-      ))}
-    </ul>
-   </div>
-  )
+    <div className="App">
+      <h1>Http React</h1>
+      {/* 1 - Resgate de dados */}
+      <ul>
+        {items && items.map((products) => (
+          <li key={products.id}>
+            {products.name} - R${products.price}
+          </li>
+        ))}
+      </ul>
+      {/* 2 - enviando dados */}
+      <div className="add-product">
+        <form onSubmit={handleSubmit}>
+          <label>
+            <span>Nome</span>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
+          <label>
+            <span>Preço</span>
+            <input
+              type="text"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </label>
+          <input type="submit" value="Enviar" />
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
