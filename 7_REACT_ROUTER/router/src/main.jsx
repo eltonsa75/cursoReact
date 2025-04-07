@@ -14,6 +14,9 @@ import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom';
 // 3 - componente base
 import Home from './routes/Home.jsx'
 
+// 7 - rota dinamica
+import Product from './routes/product.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -29,7 +32,13 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      // Rota dinamica
+      {
+        path: "products/:id",
+        element: <Product />,
       }
+
     ]
   },
   // {
