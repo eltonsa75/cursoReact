@@ -17,6 +17,9 @@ import Home from './routes/Home.jsx'
 // 7 - rota dinamica
 import Product from './routes/product.jsx'
 
+// 8 - nested route
+import Info from './routes/Info.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -33,11 +36,17 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
-      // Rota dinamica
+      // 7 -Rota dinamica
       {
         path: "products/:id",
         element: <Product />,
+      },
+      // 8 -  Nested route
+      {
+        path: "products/:id/info",
+        element: <Info />,
       }
+
 
     ]
   },
