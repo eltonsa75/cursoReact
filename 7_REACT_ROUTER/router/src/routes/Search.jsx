@@ -1,17 +1,14 @@
+import { useSearchParams, Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
 
-
-import { Link, useSearchParams } from "react-router-dom";
-
 const Search = () => {   
+    const [searchParams] = useSearchParams()
 
-    const [useSearchParams] = useSearchParams()
-
-    const url = "http://localhost:3000/products?" + useSearchParams;
+    const url = "http://localhost:3000/products?" + searchParams;
 
     const { data: items } = useFetch(url);
 
-    return 
+    return (
     <div>
         <h1>Resultado da pesquisa</h1>
         <ul className="products">
@@ -25,6 +22,7 @@ const Search = () => {
               ))}
              </ul>
     </div>
+    )
 }
 
 export default Search;
