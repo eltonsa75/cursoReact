@@ -1,28 +1,37 @@
 // 3 - alterando o valor do contexto
 // import { useContext } from "react"
 //import {CounterContext} from '../context/CounterContext'
-import ChangeCounter from "../components/ChangeCounter"
+import ChangeCounter from "../components/ChangeCounter";
 
 // 4 - refatornado com hooks
-import { useCounterContext } from '../hooks/useCounterContext'
+import { useCounterContext } from "../hooks/useCounterContext";
 
 // 5 - contexto mais complexo
-import { useTitleColorContext } from '../hooks/useTitleColorContext'
-
+import { useTitleColorContext } from "../hooks/useTitleColorContext";
 
 const Home = () => {
-    //const {counter} = useContext(CounterContext)
+  //const {counter} = useContext(CounterContext)
+  const { counter } = useCounterContext();
+  
+  const { color, dispatch } = useTitleColorContext();
 
-    const {counter} = useCounterContext();
+  const setTitleColor = (color) => {
+    dispatch({ type: color });
+  };
 
-    const {color} = useTitleColorContext()
   return (
     <div>
       <h1 style={{ color: color }}>Home</h1>
       <p>Valor do Counter: {counter}</p>
       <ChangeCounter />
-    </div>
-  )
-}
+      {/*6 - alterando contexto complexo */}
 
-export default Home
+      <div>
+        <button onClick={() => setTitleColor("RED")}>Vermelho</button>
+        <button onClick={() => setTitleColor("BLUE")}>Azul</button>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
