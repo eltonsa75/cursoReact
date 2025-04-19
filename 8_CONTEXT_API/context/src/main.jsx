@@ -1,14 +1,16 @@
-import { children, StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { children, StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
 
-import Home from "./router/Home"
-import Contact from "./router/Contact"
+import Home from "./router/Home";
+import Contact from "./router/Contact";
 
 // 2 - criando provider
-import { CounterContextProvider } from './context/CounterContext.jsx'
+import { CounterContextProvider } from "./context/CounterContext.jsx";
 
+// 5 - contexto mais complexo
+import { TitleColorContextProvider } from "./context/TitleColorContext.jsx";
 
 import {
   createBrowserRouter,
@@ -29,14 +31,16 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
-    ]
-  }
-])
+    ],
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
     <CounterContextProvider>
-    <RouterProvider router={router} />
+      <TitleColorContextProvider>
+        <RouterProvider router={router} />
+      </TitleColorContextProvider>
     </CounterContextProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
