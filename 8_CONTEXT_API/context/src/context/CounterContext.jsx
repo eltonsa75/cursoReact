@@ -3,7 +3,7 @@ import { createContext, useState } from "react";
 
 export const CounterContext = createContext()
 
-// 2 Criar provide
+// 2 Criar provider
 export const CounterContextProvider = ({ children }) => {
     const [counter, setCounter] = useState(5)
 
